@@ -1,0 +1,40 @@
+﻿@model MVC_stok.Models.Entity.tbl_urunler
+@{
+    ViewBag.Title = "Urunadd";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div class="col-md-3"></div>
+<div class="col-md-6">
+    <form class="form-group" method="post">
+        <div>
+            <label>Urun Adı</label>
+            <input type="text" class="form-control" name="urun_ad" maxlength="50" required />
+        </div>
+        <div>
+            <label>Urun Marka</label>
+            <input type="text" class="form-control" name="urun_marka" maxlength="50" required />
+        </div>
+        <div>
+            <label>Urun Kategori</label>
+            @Html.DropDownListFor(m => m.tbl_kategoriler.kategori_id, (List<SelectListItem>)ViewBag.dgr, new { @class = "form-control"})
+        </div>
+        <div>
+            <label>Urun Fiyat</label>
+            <input type="text" class="form-control" name="urun_fiyat" maxlength="20" required />
+        </div>
+        <div>
+            <label>Urun Stok</label>
+            <input type="text" class="form-control" name="urun_stok" maxlength="20" required />
+        </div>
+        <div style="margin-top:10px;">
+            <button class="btn btn-success" id="btn1">Urun Kaydet</button>
+        </div>
+    </form>
+</div>
+<div class="col-md-3"></div>
+<script>
+    $('#btn1').click(function () {
+        alert("İşleminiz Başarıyla Gerçekleştirildi.");
+    });
+</script>

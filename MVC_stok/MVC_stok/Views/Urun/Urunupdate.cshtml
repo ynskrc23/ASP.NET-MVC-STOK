@@ -1,0 +1,33 @@
+﻿@model MVC_stok.Models.Entity.tbl_urunler
+@{
+    ViewBag.Title = "Urunupdate";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>Urun Güncelleme Sayfası</h2>
+
+@using (Html.BeginForm("Update", "Urun", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.urun_id)
+        @Html.TextBoxFor(m => m.urun_id, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.urun_ad)
+        @Html.TextBoxFor(m => m.urun_ad, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.urun_marka)
+        @Html.TextBoxFor(m => m.urun_marka, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.urun_kategori)
+        @Html.DropDownListFor(m => m.tbl_kategoriler.kategori_id, (List<SelectListItem>)ViewBag.dgr, new { @class = "form-control" }) 
+        <br />
+        @Html.LabelFor(m => m.urun_fiyat)
+        @Html.TextBoxFor(m => m.urun_fiyat, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.urun_stok)
+        @Html.TextBoxFor(m => m.urun_stok, new { @class = "form-control" })
+    </div>
+    <div>
+        <button class="btn btn-warning">Urun Guncelle</button>
+    </div>
+}

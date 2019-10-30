@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "Kategoriadd";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div class="col-md-3"></div>
+<div class="col-md-6">
+    <form class="form-group" method="post">
+        <div>
+            <label>Kategori Adı</label>
+            <input type="text" class="form-control" name="kategori_ad" maxlength="50" required/>
+        </div>
+        <div style="margin-top:10px;">
+            <button class="btn btn-success" id="btn1">Kategori Kaydet</button>
+        </div>
+    </form>
+</div>
+<div class="col-md-3"></div>
+<script>
+    $('#btn1').click(function () {
+        alert("İşleminiz Başarıyla Gerçekleştirildi.");
+    });
+</script>

@@ -1,0 +1,39 @@
+﻿@using MVC_stok.Models.Entity
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<tbl_musteriler>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<a href="/Musteri/Musteriadd/" class="btn btn-primary" style="margin-bottom:10px;">
+    New Customer Add
+</a>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Musteri Id</th>
+        <th>Musteri Adı</th>  
+        <th>Musteri Soyadı</th>
+        <th>Update</th>
+        <th>Delete</th>    
+    </tr>
+    <tbody>
+        @foreach (var mus in Model)
+        {
+            <tr style="text-transform:capitalize;">
+                <td>@mus.musteri_id</td>
+                <td>@mus.musteri_ad</td>
+                <td>@mus.musteri_soyad</td>
+                <td>
+                    <a href="/Musteri/Musteriupdate/@mus.musteri_id" class="btn btn-success">Update</a>
+                </td>            
+                <td>
+                    @Html.ActionLink("Delete", "Delete", new { id = mus.musteri_id }, new { @class = "btn btn-danger", onclick = "return confirm('Silmek İstediğinizden Emin misiniz?')" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new { sayfa }))
